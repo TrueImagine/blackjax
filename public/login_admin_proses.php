@@ -18,7 +18,7 @@ $hash = "JaxJaxJaxJaxJaxJax2222";
 $salt = $format.$hash;
 $newpass = crypt($password,$salt);
 echo $newpass;
-if($newpass == $baris['password']){
+if($newpass == $baris['enc_pass']){
 	$_SESSION['status']="login";
 	header('Location:index.php');
 	}
