@@ -1,3 +1,8 @@
+<!-- index.php -->
+<?php
+	session_start();
+	include("../function/connection.php");
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -18,10 +23,23 @@
 			</ul>
 		</div><!-- end of header -->
 		
-		<!-- left_wing berisi link-link ke produk sesuai kategorinya,
+		<!-- left_wing berisi mini-cart dan link-link ke produk sesuai kategorinya,
 			daftar link bisa di edit di bagian kategori barang -->
 		<div id="left_wing">
-			<ul>
+			<!-- mini cart merupakan versi kecil dari shopping cart user,
+				mini-cart hanya berisi nama barang dan total harga saja.
+				NB: shopping cart hanya muncul apabila user telah login -->
+			<?php
+				if(!empty($_SESSION['login'])){
+			?>
+				<div id="mini-cart">
+					
+				</div>
+			<?php
+				}
+			?>
+		
+			<ul id="category-list">
 				<li>SH Figuarts</li>
 				<li>SIC</li>
 				<li>SCM</li>
