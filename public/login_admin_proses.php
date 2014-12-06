@@ -2,10 +2,10 @@
 <?php
 session_start();
 
-$koneksi =mysqli_connect("localhost", "root", "", "klik_toys");
+include("../includes/connection.php");
 
 $sql= "SELECT * FROM admin WHERE nama = '$_POST[username]'";
-$hasil = mysqli_query($koneksi, $sql);
+$hasil = mysqli_query($connection, $sql);
 
 if(mysqli_num_rows($hasil) ==0){
 	echo "Username tidak ditemukan";
