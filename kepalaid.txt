@@ -1,0 +1,9 @@
+0=admin
+1=user
+2=kewenangan
+3=barang
+4=transaksi
+5=h_transaksi
+6=jenis_barang
+7=krisan
+8=news
