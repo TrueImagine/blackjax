@@ -7,15 +7,23 @@ body{
 }
 
 #header{
-	width:65%;
+	width:500px;
 	margin:0px auto;
 	padding:0px;
 	display:inline-block;
+	background:white;
 }
 
 #left-wing{
 	width:35%;
 	height:100%;
+	margin:0px;
+	padding:0px;
+	display:inline-block;
+}
+
+#content{
+	width:65%;
 	margin:0px;
 	padding:0px;
 	display:inline-block;
