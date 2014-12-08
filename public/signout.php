@@ -7,8 +7,8 @@
 	if($_SESSION['reg_user']){
 		$_SESSION['reg_user'] = null;
 		//jika ada shopping list, hapus juga
-		if(!empty($_SESSION['shop-list'])){
-			$_SESSION['shop-list'] = null;
+		if(!empty($_SESSION['shop_list'])){
+			$_SESSION['shop_list'] = null;
 		}
 	}
 	header("Location:index.php");

@@ -61,7 +61,7 @@
 							echo boxBarang($baris);
 						}
 					?>
-				</div>
+				</div><!-- akhir product-line -->
 			</div>
 			<p class="clearFloat"></p>
 			
