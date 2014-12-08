@@ -9,4 +9,5 @@
 	<input type="password" value="" name="password" placeholder="Password" />
 	<br />
 	<input type="submit" name="login" value="Login" />
+	<a href="signup_user.php">SIGN UP</a>
 </form>
