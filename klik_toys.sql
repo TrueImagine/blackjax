@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 06, 2014 at 04:47 PM
+-- Generation Time: Dec 08, 2014 at 08:26 AM
 -- Server version: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -98,10 +98,10 @@ CREATE TABLE IF NOT EXISTS `jenis_barang` (
 --
 
 INSERT INTO `jenis_barang` (`id_jenis`, `nama`) VALUES
-(601, 'shf'),
-(602, 'sic'),
-(603, 'scm'),
-(604, 'nendoroid');
+(601, 'SHF'),
+(602, 'SIC'),
+(603, 'SCM'),
+(604, 'Nendoroid');
 
 -- --------------------------------------------------------
 
@@ -217,6 +217,12 @@ ALTER TABLE `kewenangan`
 --
 ALTER TABLE `krisan`
  ADD PRIMARY KEY (`id_krisan`);
+
+--
+-- Indexes for table `news`
+--
+ALTER TABLE `news`
+ ADD PRIMARY KEY (`id_news`);
 
 --
 -- Indexes for table `reg_user`

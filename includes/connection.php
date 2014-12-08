@@ -8,7 +8,4 @@
 	if(mysqli_connect_errno()){
 		die("Database connection error:".mysqli_connect_error()." ".mysqli_connect_errno());
 	}
-	else{
-		echo "Connection success";
-	}
 ?>
