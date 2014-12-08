@@ -124,6 +124,7 @@ h3{
 #mini-cart table,#mini-cart th,#mini-cart td{
 	border:2px solid black;
 	border-collapse:collapse;
+	border-radius:0px;
 	margin-left:10px;
 }
 
