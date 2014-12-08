@@ -6,9 +6,9 @@
 	//jika user telah melakukan login, maka hapus jejak loginnya dan lempar ke index.php
 	if($_SESSION['reg_user']){
 		$_SESSION['reg_user'] = null;
-		//jika ada cookie shopping list, hapus juga
-		if(!empty($_COOKIE['shop-list'])){
-			$_COOKIE['shop-list'] = null;
+		//jika ada shopping list, hapus juga
+		if(!empty($_SESSION['shop-list'])){
+			$_SESSION['shop-list'] = null;
 		}
 	}
 	header("Location:index.php");

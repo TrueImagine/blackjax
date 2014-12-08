@@ -32,7 +32,7 @@
 		mini-cart hanya berisi nama barang, jumlah dan total harga saja.
 		NB: shopping cart hanya muncul apabila user telah login -->
 	<?php
-		//if(!empty($_SESSION['login'])){
+		if(!empty($_SESSION['reg_user'])){
 	?>
 		<div id="mini-cart">
 			<h3>Mini cart:</h3>
@@ -42,22 +42,45 @@
 					<th>Produk</th>
 				<tr>
 				<?php
-					if(empty($_COOKIE['shop_list'])){
+					if(empty($_SESSION['shop_list'])){
 						echo "<tr><td></td></tr>";
 					}
 					else{
-						//Cetak shop-list berdasarkan cookie
+						//Cetak shop-list yang ada di session
+						for($i = 0;$i < count($_SESSION['shop_list']['nama']);$i++){
+							echo "<tr>";
+							echo "<td>";
+							echo $_SESSION['shop_list']['jumlah'][$i];
+							echo "</td>";
+							echo "<td>";
+							echo $_SESSION['shop_list']['nama'][$i];
+							echo "</td>";
+							echo "</tr>";
+						}
 					}
 				?>
+				<!-- baris terakhir untuk total belanja -->
 				<tr>
 					<th>Total:</th>
-					<td><?php ?></td>
+					<td>
+					<?php
+						//Jika shop-list sudah terisi, cetak
+						if(!empty($_SESSION['shop_list'])){
+							$shopcart = $_SESSION['shop_list'];
+							$total = 0;
+							for($i = 0;$i < count($shopcart['harga']);$i++){
+								$total = $total + ($shopcart['harga'][$i] * $shopcart['jumlah'][$i]);
+							}
+							echo $total;
+						}
+					?>
+					</td>
 				</tr>
 			</table>
-			<button id="pesan" onclick="location.href = 'transaksi.php';">Pesan</button>
+			<button id="pesan" onclick="location.href = 'transaksi.php';">Lihat Pesanan</button>
 		</div>
 	<?php
-		//}
+		}//akhir dari if(!empty($_SESSION['reg_user']))
 	?>
 	<!-- bagian kategori menampilkan kategori-kategori(jenis) barang
 		yang dapat di klik untuk merujuk ke barang-barang berkategori tertentu.

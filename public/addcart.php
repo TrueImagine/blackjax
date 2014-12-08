@@ -1,7 +1,6 @@
 <?php
 	// addcart.php
 	// Halaman ini digunakan untuk mengolah pemesanan user dan memasukkannya ke shopping cart
-	// sementara (di cookie)
 	
 	session_start();
 	include("../includes/connection.php");
@@ -20,33 +19,42 @@
 	}
 	//Jika sudah login, maka lakukan proses untuk memasukkan barang ke cart
 	else{
-		//Jika belum ada, maka buat cookie baru
-		if(empty($_COOKIE['shop_list'])){
-			$barang = barang_menurut_id($_GET['id']);
+		//Jika belum ada, maka buat shop-list baru
+		if(empty($_SESSION['shop_list'])){
+			$baris = barang_menurut_id($_GET['id']);
+			$barang = mysqli_fetch_assoc($baris);
 			$nama = "shop_list";
-			$nilai = array("nama" => array($barang['nama']), "harga" => array($barang['harga']), array("jumlah" => 1));
-			$expire = time() + 60;
-			setcookie($nama,$nilai,$expire);
+			$nilai = array("nama" => array($barang['nama']), "harga" => array($barang['harga']), "jumlah" => array(1));
+			
+			$_SESSION[$nama] = $nilai;
 			$_SESSION['message'] = "Barang sudah dimasukkan ke shopping cart";
 		}
-		//Jika cookie sudah ada (sudah ada barang di shopping list), maka perbaharui cookie
+		//Jika shop-list sudah ada, maka perbaharui shop-list
 		else{
-			$barang = barang_menurut_id($_GET('id'));
-			$nama = "shop_list";
-			$nilai = $_COOKIE['shop_list'];
+			$tabel_barang = barang_menurut_id($_GET['id']);
+			$barang = mysqli_fetch_assoc($tabel_barang);
+			$nilai = $_SESSION['shop_list'];
 			if(cek_produk_di_cart($_GET['id']) == false){
 				$nilai['nama'][count($nilai['nama'])] = $barang['nama'];
-				$nilai['harga'][count($nilai['nama'])] = $barang['nama'];
-				$nilai['jumlah'][count($nilai['nama'])] = $barang['jumlah'];
+				$nilai['harga'][count($nilai['harga'])] = $barang['harga'];
+				$nilai['jumlah'][count($nilai['jumlah'])] = 1;
 				$_SESSION['message'] = "Barang sudah dimasukkan ke shopping cart";
 			}
 			else{
-				$_SESSION['message'] = "Barang sudah ada di shopping cart";
+				$_SESSION['message'] = "Barang sudah dimasukkan ke shopping cart";
+				$ketemu = false;
+				$i = 0;
+				while($ketemu == false && $i < count($nilai['nama'])){
+					if($nilai['nama'][$i] == $barang['nama']){
+						$nilai['jumlah'][$i] += 1;
+						$ketemu = true;
+					}
+					$i++;
+				}
 			}
-			$expire = time() + 60;
-			setcookie($nama,$nilai,$expire);
-			header("location:products.php?id={$_GET['id']}");
+			$_SESSION['shop_list'] = $nilai;
 		}
+		header("location:products.php?id={$_GET['id']}");
 	}
 	mysqli_close($connection);
 ?>

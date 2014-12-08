@@ -10,7 +10,7 @@
 			$output .= " />";
 			$output .= "</a>";
 			$output .= "<br />";
-			$output .= "<a href = \"products.php?jenis={$barang["id_jenis"]}?id={$barang["id_barang"]}\">";
+			$output .= "<a href = \"products.php?jenis={$barang["id_jenis"]}&id={$barang["id_barang"]}\">";
 			$output .= "<p>";
 			$output .= $barang["nama"];
 			$output .= "</p>";
@@ -51,14 +51,17 @@
 	}
 	
 	function cek_produk_di_cart($id){
-		$barang = barang_menurut_id($id);
-		
-		foreach($_COOKIE['shop-list']['nama'] as $item)
-			if($item == $barang['nama']){
-				return true;
+		$obj = barang_menurut_id($id);
+		$barang = mysqli_fetch_assoc($obj);
+		$shopcart = $_SESSION['shop_list'];
+		$return = false;
+		$i = 0;
+		while($return == false && $i < count($shopcart['nama'])){
+			if($barang['nama'] == $shopcart['nama'][$i]){
+				$return = true;
 			}
-			else{
-				return false;
-			}
+			$i++;
+		}
+		return $return;
 	}
 ?>
