@@ -1,4 +1,4 @@
-<!--login_proses.php -->
+<!--login_admin_proses.php -->
 <?php
 session_start();
 

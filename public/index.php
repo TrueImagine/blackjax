@@ -25,8 +25,11 @@
 			<!-- bagian left-wing dimasukkan ke left_wing.php -->
 			<?php include("../includes/left_wing.php")?>
 			
-			<!-- main-content menampilkan news dan lini produk terbaru -->
+			<!-- main-content menampilkan message, news dan lini produk terbaru -->
 			<div id="main-content">
+				<!-- Jika ada message di session, tampilkan pesan -->
+				<!-- container untuk pesan ada di pesan.php -->
+				<?php include("../includes/pesan.php"); ?>
 				<!-- bagian news, isi news bisa ditambah, edit, dan delete di database -->
 				<div id="news">
 					<h2>Latest news</h2>

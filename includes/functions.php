@@ -1,13 +1,12 @@
 <?php
-	session_start();
 	include("../includes/connection.php");
 	
 	function boxBarang($barang){
 		if(!empty($barang)){
 			$output = "<div id = \"produk\">";
-			$output .= "<a href = \"products.php?jenis={$barang["id_jenis"]}?id={$barang["id_barang"]}\">";
+			$output .= "<a href = \"products.php?jenis={$barang["id_jenis"]}&id={$barang["id_barang"]}\">";
 			$output .= "<img src=\"{$barang["sml_logo"]}\" ";
-			$output .= "href = \"products.php?id={$barang["id_barang"]}\"";
+			$output .= "href = \"products.php?jenis={$barang["id_jenis"]}&id={$barang["id_barang"]}\"";
 			$output .= " />";
 			$output .= "</a>";
 			$output .= "<br />";
@@ -42,5 +41,24 @@
 			}
 			mysqli_free_result($tabel_barang);
 		}
+	}
+	
+	function barang_menurut_id($id){
+		global $connection;
+		$query = "SELECT * FROM barang WHERE id_barang ={$id}"; 
+		$item = mysqli_query($connection,$query);
+		return $item;
+	}
+	
+	function cek_produk_di_cart($id){
+		$barang = barang_menurut_id($id);
+		
+		foreach($_COOKIE['shop-list']['nama'] as $item)
+			if($item == $barang['nama']){
+				return true;
+			}
+			else{
+				return false;
+			}
 	}
 ?>

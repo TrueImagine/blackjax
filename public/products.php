@@ -26,12 +26,13 @@
 			
 			<!-- main-content di products berfungsi untuk menampilkan produk -->
 			<div id="main-content">
+				<?php include("../includes/pesan.php"); ?>
 				<h2>Produk</h2>
 				<?php
-					// Apabila jenis barang belum dipilih, maka tampilkan pesan untuk memilih kategori
+					// Apabila jenis barang dan id barang belum dipilih,
+					// maka tampilkan pesan untuk memilih kategori
 					// atau nama produk
-					// NB: produk yang dipilih akan selalu memiliki jenis 
-					if(empty($_GET["jenis"])){
+					if(empty($_GET["jenis"]) && empty($_GET['id'])){
 					?>
 					<p>Silahkan pilih kategori atau nama produk</p>
 					<form id="form-cari-productsphp" action="products.php" method="GET">
@@ -58,28 +59,33 @@
 					<?php
 						//akhir if(empty($_GET["jenis"]))
 						}
-					// Apabila jenis tidak kosong, cek apakah id(barang) sudah dipilih atau ada
+					// Apabila salah satunya ada, pertama-tama cek
+					// apakah id(barang) sudah dipilih atau ada
 					// Jika ada, maka tampilkan produk tersebut
 					else if(!empty($_GET['id'])){
-						$query = "SELECT * FROM barang WHERE id_barang={$_GET['id']} LIMIT 1";
-						$item = mysqli_query($connection,$query);
+						$item = barang_menurut_id($_GET['id']);
 						
 						if($baris = mysqli_fetch_assoc($item)){
-							echo "<img src =\"{$item['big_logo']}\" href=\"{$item['big_logo']}\" />";
-							echo "<ul>";
+							echo "<img src =\"{$baris['big_logo']}\" href=\"{$baris['big_logo']}\" />";
+							echo "<ul id=\"ket_barang\">";
 							echo "<li>";
 							echo "Nama: {$baris{'nama'}}";
 							echo "</li>";
 							echo "<li>";
-							echo "Harga: {$baris{'harga'}}";
+							echo "Harga: Rp.";
+							echo number_format($baris['harga'], 2, ',', '.');
 							echo "</li>";
 							echo "<li>";
 							echo "Stok: {$baris{'stok'}}";
 							echo "</li>";
 							echo "</ul>";
 						}
+						//button "Add to Cart" dibawah akan membuat produk ditambahkan ke dalam shopping cart,
+						//ketentuan dan tata cara tambah item di shopping cart ada di addcart.php
+						echo "<button onclick=\"location.href = 'addcart.php?id={$baris['id_barang']}' \">Add to Cart</button>";
 					}
-					// Jika tidak ada id(barang), maka pilih semua item yang memiliki jenis tertentu
+					// Jika tidak ada id(barang),
+					// maka pilih semua item yang memiliki jenis tertentu
 					else{
 						if(is_numeric($_GET['jenis'])){
 							$query = "SELECT * FROM jenis_barang WHERE id_jenis={$_GET['jenis']} LIMIT 1";
