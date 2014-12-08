@@ -30,8 +30,7 @@
 				<h2>Produk</h2>
 				<?php
 					// Apabila jenis barang dan id barang belum dipilih,
-					// maka tampilkan pesan untuk memilih kategori
-					// atau nama produk
+					// maka tampilkan form untuk mencari produk
 					if(empty($_GET["jenis"]) && empty($_GET['id'])){
 					?>
 					<p>Silahkan pilih kategori atau nama produk</p>
@@ -59,8 +58,7 @@
 					<?php
 						//akhir if(empty($_GET["jenis"]))
 						}
-					// Apabila salah satunya ada, pertama-tama cek
-					// apakah id(barang) sudah dipilih atau ada
+					// Selanjutnya, cek apakah id(barang) sudah dipilih
 					// Jika ada, maka tampilkan produk tersebut
 					else if(!empty($_GET['id'])){
 						$item = barang_menurut_id($_GET['id']);
@@ -85,19 +83,22 @@
 						echo "<button onclick=\"location.href = 'addcart.php?id={$baris['id_barang']}' \">Add to Cart</button>";
 					}
 					// Jika tidak ada id(barang),
-					// maka pilih semua item yang memiliki jenis tertentu
+					// maka proses form input search
 					else{
+						//Jika jenis merupakan jenis tertentu
 						if(is_numeric($_GET['jenis'])){
+							//ambil barang yang sesuai dengan input keyword nama
 							$query = "SELECT * FROM jenis_barang WHERE id_jenis={$_GET['jenis']} LIMIT 1";
 							$tabel_jenis = mysqli_query($connection,$query);
 							if($baris = mysqli_fetch_assoc($tabel_jenis)){
 								echo "<h3>Kategori: {$baris['nama']}</h3>";
 							}
 						}
+						//Sebaliknya, jika jenis adalah "semua", maka cetak semua
 						else if($_GET['jenis'] == "semua"){
 							echo "<h3>Kategori: Semua</h3>";
 						}
-						barang_berdasarkan_jenis($_GET['jenis']);
+						barang_berdasarkan_jenis_dan_nama($_GET['jenis'],$_GET['cari']);
 					}
 				?>
 			</div>

@@ -20,27 +20,38 @@
 		return $output;
 	}
 	
-	function barang_berdasarkan_jenis($jenis){
+	function barang_berdasarkan_jenis_dan_nama($jenis,$nama){
 		global $connection;
-		if($jenis == "semua"){
-			$query = "SELECT * FROM barang LIMIT 18";
-			$tabel_barang = mysqli_query($connection,$query);
 		
+		//jika jenis yang dipilih = "semua", maka ambil semua produk
+		if($jenis == "semua"){
+			$query = "SELECT * FROM barang";
+			$tabel_barang = mysqli_query($connection,$query);
+		}
+		//jika tidak, maka ambil produk berdasarkan jenis tertentu
+		else if(is_numeric($jenis)){
+			$query = "SELECT * FROM barang WHERE id_jenis={$jenis}";
+			$tabel_barang = mysqli_query($connection,$query);
+		}
+		
+		//selanjutnya, cek input keyword dari user
+		//jika input keyword user tidak kosong, maka cetak barang yang mengandung keyword
+		if(!empty($nama) && $nama != ""){
+			while($baris = mysqli_fetch_assoc($tabel_barang)){
+				$nama_barang_di_database = strtolower($baris['nama']);
+				$keyword_barang = strtolower(urldecode($nama));
+				if (strpos($nama_barang_di_database,$keyword_barang) !== false) {
+					echo boxBarang($baris);
+				}
+			}
+		}
+		//jika tidak, maka cetak semua barang berdasarkan jenisnya
+		else{
 			while($baris = mysqli_fetch_assoc($tabel_barang)){
 				echo boxBarang($baris);
 			}
 		}
-		else if(is_numeric($jenis)){
-			$query = "SELECT * FROM barang WHERE id_jenis={$jenis}";
-			$tabel_barang = mysqli_query($connection,$query);
-			if($baris = mysqli_fetch_assoc($tabel_barang)){
-				do{
-					echo boxBarang($baris);
-				}
-				while($baris = mysqli_fetch_assoc($tabel_barang));
-			}
-			mysqli_free_result($tabel_barang);
-		}
+		mysqli_free_result($tabel_barang);
 	}
 	
 	function barang_menurut_id($id){
