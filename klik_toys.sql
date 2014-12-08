@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 08, 2014 at 09:57 AM
+-- Generation Time: Dec 08, 2014 at 12:43 PM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.11
 
@@ -185,6 +185,13 @@ CREATE TABLE IF NOT EXISTS `reg_user` (
   `enc_pass` varchar(60) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `reg_user`
+--
+
+INSERT INTO `reg_user` (`id`, `nama`, `enc_pass`) VALUES
+(1, 'andrew', '$2y$10$JaxJaxJaxJaxJaxJax222u2xN2/Ef4ef7LYksjBhNNRJN9PGJMrfO');
 
 -- --------------------------------------------------------
 
