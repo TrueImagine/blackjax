@@ -9,6 +9,7 @@
 	<head>
 		<title>Kliktoys.com | Your one stop shop to games and toys!</title>
 		<link rel="stylesheet" type="text/css" href="style/toystyle.css" />
+		<link rel="stylesheet" type="text/css" href="style/productstyle.css" />
 	</head>
 	<body>
 		<!-- div body menandakan container isi (header,content,dsb) dari dokumen web,
@@ -126,7 +127,7 @@
 					<h2>Product terbaru</h2>
 					<!-- cetak berdasarkan rules php -->
 					<?php
-						$query = "SELECT * FROM barang ORDER BY id_barang DESC LIMIT 5";
+						$query = "SELECT * FROM barang ORDER BY id_barang DESC LIMIT 6";
 						$tabel_barang_terbaru = mysqli_query($connection,$query);
 						
 						while($baris = mysqli_fetch_assoc($tabel_barang_terbaru)){
