@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.7.1
+-- version 4.1.12
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 08, 2014 at 08:26 AM
--- Server version: 5.6.20
--- PHP Version: 5.5.15
+-- Generation Time: Dec 08, 2014 at 09:57 AM
+-- Server version: 5.6.16
+-- PHP Version: 5.5.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -32,7 +32,9 @@ CREATE TABLE IF NOT EXISTS `admin` (
   `id` int(11) NOT NULL,
   `nama` varchar(30) NOT NULL,
   `enc_pass` varchar(60) NOT NULL,
-  `kode_kewenangan` int(11) NOT NULL
+  `kode_kewenangan` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `kode_kewenangan` (`kode_kewenangan`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -57,7 +59,9 @@ CREATE TABLE IF NOT EXISTS `barang` (
   `harga` int(11) NOT NULL,
   `stok` int(11) NOT NULL,
   `sml_logo` varchar(60) NOT NULL,
-  `big_logo` varchar(60) NOT NULL
+  `big_logo` varchar(60) NOT NULL,
+  PRIMARY KEY (`id_barang`),
+  KEY `id_jenis` (`id_jenis`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -79,7 +83,10 @@ INSERT INTO `barang` (`id_barang`, `nama`, `id_jenis`, `harga`, `stok`, `sml_log
 CREATE TABLE IF NOT EXISTS `h_transaksi` (
   `h_kode` int(11) NOT NULL,
   `id_trans` int(11) NOT NULL,
-  `id_barang` int(11) NOT NULL
+  `id_barang` int(11) NOT NULL,
+  PRIMARY KEY (`h_kode`),
+  KEY `id_trans` (`id_trans`),
+  KEY `id_barang` (`id_barang`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -90,7 +97,8 @@ CREATE TABLE IF NOT EXISTS `h_transaksi` (
 
 CREATE TABLE IF NOT EXISTS `jenis_barang` (
   `id_jenis` int(11) NOT NULL,
-  `nama` varchar(30) NOT NULL
+  `nama` varchar(30) NOT NULL,
+  PRIMARY KEY (`id_jenis`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -111,7 +119,8 @@ INSERT INTO `jenis_barang` (`id_jenis`, `nama`) VALUES
 
 CREATE TABLE IF NOT EXISTS `kewenangan` (
   `kode` int(11) NOT NULL,
-  `kewenangan` varchar(20) NOT NULL
+  `kewenangan` varchar(20) NOT NULL,
+  PRIMARY KEY (`kode`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -129,11 +138,20 @@ INSERT INTO `kewenangan` (`kode`, `kewenangan`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `krisan` (
-`id_krisan` int(11) NOT NULL,
+  `id_krisan` int(11) NOT NULL AUTO_INCREMENT,
   `email` varchar(60) NOT NULL,
   `isi` char(201) NOT NULL,
-  `tanggal` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `tanggal` date NOT NULL,
+  PRIMARY KEY (`id_krisan`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `krisan`
+--
+
+INSERT INTO `krisan` (`id_krisan`, `email`, `isi`, `tanggal`) VALUES
+(1, 'asdasd', 'asd', '0000-00-00'),
+(2, 'asd', 'asd', '2014-12-08');
 
 -- --------------------------------------------------------
 
@@ -144,7 +162,8 @@ CREATE TABLE IF NOT EXISTS `krisan` (
 CREATE TABLE IF NOT EXISTS `news` (
   `id_news` int(11) NOT NULL,
   `tanggal` date NOT NULL,
-  `isi` char(201) NOT NULL
+  `isi` char(201) NOT NULL,
+  PRIMARY KEY (`id_news`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -163,7 +182,8 @@ INSERT INTO `news` (`id_news`, `tanggal`, `isi`) VALUES
 CREATE TABLE IF NOT EXISTS `reg_user` (
   `id` int(11) NOT NULL,
   `nama` varchar(60) NOT NULL,
-  `enc_pass` varchar(60) NOT NULL
+  `enc_pass` varchar(60) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -175,76 +195,11 @@ CREATE TABLE IF NOT EXISTS `reg_user` (
 CREATE TABLE IF NOT EXISTS `transaksi` (
   `kode` int(11) NOT NULL,
   `subtotal` int(11) NOT NULL,
-  `user` int(11) NOT NULL
+  `user` int(11) NOT NULL,
+  PRIMARY KEY (`kode`),
+  KEY `user` (`user`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `admin`
---
-ALTER TABLE `admin`
- ADD PRIMARY KEY (`id`), ADD KEY `kode_kewenangan` (`kode_kewenangan`);
-
---
--- Indexes for table `barang`
---
-ALTER TABLE `barang`
- ADD PRIMARY KEY (`id_barang`), ADD KEY `id_jenis` (`id_jenis`);
-
---
--- Indexes for table `h_transaksi`
---
-ALTER TABLE `h_transaksi`
- ADD PRIMARY KEY (`h_kode`), ADD KEY `id_trans` (`id_trans`), ADD KEY `id_barang` (`id_barang`);
-
---
--- Indexes for table `jenis_barang`
---
-ALTER TABLE `jenis_barang`
- ADD PRIMARY KEY (`id_jenis`);
-
---
--- Indexes for table `kewenangan`
---
-ALTER TABLE `kewenangan`
- ADD PRIMARY KEY (`kode`);
-
---
--- Indexes for table `krisan`
---
-ALTER TABLE `krisan`
- ADD PRIMARY KEY (`id_krisan`);
-
---
--- Indexes for table `news`
---
-ALTER TABLE `news`
- ADD PRIMARY KEY (`id_news`);
-
---
--- Indexes for table `reg_user`
---
-ALTER TABLE `reg_user`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `transaksi`
---
-ALTER TABLE `transaksi`
- ADD PRIMARY KEY (`kode`), ADD KEY `user` (`user`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `krisan`
---
-ALTER TABLE `krisan`
-MODIFY `id_krisan` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- Constraints for dumped tables
 --
@@ -253,26 +208,26 @@ MODIFY `id_krisan` int(11) NOT NULL AUTO_INCREMENT;
 -- Constraints for table `admin`
 --
 ALTER TABLE `admin`
-ADD CONSTRAINT `admin_ibfk_1` FOREIGN KEY (`kode_kewenangan`) REFERENCES `kewenangan` (`kode`);
+  ADD CONSTRAINT `admin_ibfk_1` FOREIGN KEY (`kode_kewenangan`) REFERENCES `kewenangan` (`kode`);
 
 --
 -- Constraints for table `barang`
 --
 ALTER TABLE `barang`
-ADD CONSTRAINT `barang_ibfk_1` FOREIGN KEY (`id_jenis`) REFERENCES `jenis_barang` (`id_jenis`);
+  ADD CONSTRAINT `barang_ibfk_1` FOREIGN KEY (`id_jenis`) REFERENCES `jenis_barang` (`id_jenis`);
 
 --
 -- Constraints for table `h_transaksi`
 --
 ALTER TABLE `h_transaksi`
-ADD CONSTRAINT `h_transaksi_ibfk_1` FOREIGN KEY (`id_trans`) REFERENCES `transaksi` (`kode`),
-ADD CONSTRAINT `h_transaksi_ibfk_2` FOREIGN KEY (`id_barang`) REFERENCES `barang` (`id_barang`);
+  ADD CONSTRAINT `h_transaksi_ibfk_1` FOREIGN KEY (`id_trans`) REFERENCES `transaksi` (`kode`),
+  ADD CONSTRAINT `h_transaksi_ibfk_2` FOREIGN KEY (`id_barang`) REFERENCES `barang` (`id_barang`);
 
 --
 -- Constraints for table `transaksi`
 --
 ALTER TABLE `transaksi`
-ADD CONSTRAINT `transaksi_ibfk_1` FOREIGN KEY (`user`) REFERENCES `reg_user` (`id`);
+  ADD CONSTRAINT `transaksi_ibfk_1` FOREIGN KEY (`user`) REFERENCES `reg_user` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
