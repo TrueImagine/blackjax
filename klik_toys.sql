@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 09, 2014 at 08:26 AM
+-- Generation Time: Dec 09, 2014 at 03:14 PM
 -- Server version: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -93,7 +93,8 @@ INSERT INTO `barang` (`id_barang`, `nama`, `id_jenis`, `harga`, `stok`, `sml_log
 CREATE TABLE IF NOT EXISTS `h_transaksi` (
   `h_kode` int(11) NOT NULL,
   `id_trans` int(11) NOT NULL,
-  `id_barang` int(11) NOT NULL
+  `id_barang` int(11) NOT NULL,
+  `jumlah` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
