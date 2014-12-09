@@ -103,6 +103,7 @@
 						<?php
 							//Jika shop-list ada, maka tampilkan tombol submit
 							if(!empty($_SESSION["shop_list"])){
+								echo "<input type=\"reset\" name=\"reset\" value=\"Reset\" />";
 								echo "<input type=\"submit\" name=\"confirm\" value=\"Konfirmasi Pesanan\" />";
 							}
 						?>

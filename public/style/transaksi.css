@@ -1,0 +1,30 @@
+/*transaksi.css*/
+#transaksi{
+	background:#FFFF99;
+	width:70%;
+	margin:0px auto;
+	padding:0px;
+}
+
+#transaksi table,#transaksi th,#transaksi td{
+	border:2px solid black;
+	border-collapse:collapse;
+	text-align:center;
+}
+
+#transaksi table{
+	width:600px;
+	margin:auto;
+}
+
+#transaksi th, #transaksi td{
+	padding:5px;
+}
+
+#submit{
+	padding:10px;
+	text-align:center;
+	border:2px dashed green;
+	margin:10px auto;
+	width:200px;
+}
