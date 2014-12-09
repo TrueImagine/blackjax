@@ -175,7 +175,6 @@ h3{
 	background:white;
 	border:1px solid transparent;
 	border-radius:50px 0px 0px 0px;
-	min-height:100%;
 }
 
 #main-content table{
@@ -203,6 +202,11 @@ h3{
 #form-cari-productsphp label{
 	display:inline-block;
 	width:100px;
+}
+
+#shopping-cart table, #shopping-cart th,#shopping-cart td{
+	border:1px solid black;
+	border-collapse:collapse;
 }
 /* akhir content */
 

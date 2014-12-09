@@ -47,13 +47,13 @@
 					}
 					else{
 						//Cetak shop-list yang ada di session
-						for($i = 0;$i < count($_SESSION['shop_list']['nama']);$i++){
+						for($i = 0;$i < count($_SESSION['shop_list']);$i++){
 							echo "<tr>";
 							echo "<td>";
-							echo $_SESSION['shop_list']['jumlah'][$i];
+							echo $_SESSION['shop_list'][$i]['jumlah'];
 							echo "</td>";
 							echo "<td>";
-							echo $_SESSION['shop_list']['nama'][$i];
+							echo $_SESSION['shop_list'][$i]['nama'];
 							echo "</td>";
 							echo "</tr>";
 						}
@@ -68,16 +68,16 @@
 						if(!empty($_SESSION['shop_list'])){
 							$shopcart = $_SESSION['shop_list'];
 							$total = 0;
-							for($i = 0;$i < count($shopcart['harga']);$i++){
-								$total = $total + ($shopcart['harga'][$i] * $shopcart['jumlah'][$i]);
+							for($i = 0;$i < count($shopcart);$i++){
+								$total = $total + ($shopcart[$i]['harga'] * $shopcart[$i]['jumlah']);
 							}
-							echo $total;
+							echo "Rp".number_format($total,2,",",".");
 						}
 					?>
 					</td>
 				</tr>
 			</table>
-			<button id="pesan" onclick="location.href = 'transaksi.php';">Lihat Pesanan</button>
+			<button id="pesan" onclick="location.href = 'shopping_cart.php';">Lihat Pesanan</button>
 		</div>
 	<?php
 		}//akhir dari if(!empty($_SESSION['reg_user']))
@@ -93,7 +93,7 @@
 				$tabel_jenis = mysqli_query($connection,$query);
 				if(mysqli_num_rows($tabel_jenis) > 0){
 					while($baris = mysqli_fetch_assoc($tabel_jenis)){
-						echo "<li><a href=\"products.php?jenis={$baris['id_jenis']}\">";
+						echo "<li><a href=\"products.php?cari=&jenis={$baris['id_jenis']}\">";
 						echo $baris['nama'];
 						echo "</a>";
 						echo "</li>";

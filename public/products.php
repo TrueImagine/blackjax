@@ -81,6 +81,8 @@
 						//button "Add to Cart" dibawah akan membuat produk ditambahkan ke dalam shopping cart,
 						//ketentuan dan tata cara tambah item di shopping cart ada di addcart.php
 						echo "<button onclick=\"location.href = 'addcart.php?id={$baris['id_barang']}' \">Add to Cart</button>";
+						echo "<br /><br />";
+						echo "<a href=\"products.php?cari=&jenis={$baris["id_jenis"]}\"><< Kembali ke kategori produk</a>";
 					}
 					// Jika tidak ada id(barang),
 					// maka proses form input search

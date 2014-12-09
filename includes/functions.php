@@ -67,8 +67,8 @@
 		$shopcart = $_SESSION['shop_list'];
 		$return = false;
 		$i = 0;
-		while($return == false && $i < count($shopcart['nama'])){
-			if($barang['nama'] == $shopcart['nama'][$i]){
+		while($return == false && $i < count($shopcart)){
+			if($barang['nama'] == $shopcart[$i]['nama']){
 				$return = true;
 			}
 			$i++;
