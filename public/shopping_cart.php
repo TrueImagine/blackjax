@@ -6,6 +6,9 @@
 	include("../includes/connection.php");
 	include("../includes/functions.php");
 	
+	if(empty($_SESSION['reg_user'])){
+		header('Location:index.php');
+	}
 	if(isset($_GET['del'])){
 		$ketemu = false;
 		$i = 0;
@@ -57,7 +60,7 @@
 				<div id="shopping-cart">
 					<!-- form untuk mengolah input transaksi, hasil submit form akan dibawa ke
 						proses_transaksi.php -->
-					<form action="proses_transaksi.php" method="GET">
+					<form action="proses_transaksi.php" method="POST">
 						<table>
 							<tr>
 								<th>Nama Produk</th>

@@ -8,9 +8,11 @@
 		if(empty($_SESSION['reg_user'])){
 			include("../includes/form_login.php");
 		}
-		//Jika sudah login, maka tampilkan pesan dan link Sign Out
+		//Jika sudah login, maka tampilkan pesan dan link profil, sign out
 		else{
-			echo "<p>Kamu login sebagai: <span>{$_SESSION['reg_user']}</span></p>";
+			$query = "SELECT nama FROM reg_user WHERE id={$_SESSION['reg_user']}";
+			$nama = mysqli_fetch_assoc(mysqli_query($connection,$query));
+			echo "<p>Kamu login sebagai: <span>{$nama['nama']}</span></p>";
 			echo "<a href=\"edit_user.php\">Edit Profile</a>";
 			echo "<br>";
 			echo "<a href=\"signout.php\">Sign out</a>";
