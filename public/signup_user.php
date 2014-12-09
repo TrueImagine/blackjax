@@ -28,6 +28,12 @@
 		<input type="password" name="password" /><br />
 		Re-Type Pasword:
 		<input type="password" name="repassword" /><br />
+		Email:
+		<input type="text" name="email" /><br />
+		Alamat:
+		<input type="text" name="alamat" /><br />
+		No Telp:
+		<input type="text" name="telp" /><br />
 		<input type="submit" name="signup" value="Signup" />
 		</form>
 	</div>

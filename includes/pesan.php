@@ -5,5 +5,6 @@
 		echo $_SESSION["message"];
 		echo "</div>";
 		$_SESSION['message'] = null;
+		echo "<br>";
 	}
 ?>

@@ -11,6 +11,8 @@
 		//Jika sudah login, maka tampilkan pesan dan link Sign Out
 		else{
 			echo "<p>Kamu login sebagai: <span>{$_SESSION['reg_user']}</span></p>";
+			echo "<a href=\"edit_user.php\">Edit Profile</a>";
+			echo "<br>";
 			echo "<a href=\"signout.php\">Sign out</a>";
 		}
 	?>
@@ -20,7 +22,7 @@
 		<li><a href="index.php">Home</a></li>
 		<li><a href="products.php">Browse Products</a></li>
 		<li><a href="about_us.php">About us</a></li>
-		<li><a href="about_us.php">Contact us</a></li>
+		<li><a href="contact_us.php">Contact us</a></li>
 	</ul>
 	<p class="clearFloat"></p>
 </div><!-- end of header -->

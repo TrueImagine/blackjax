@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 08, 2014 at 04:46 PM
+-- Generation Time: Dec 09, 2014 at 08:26 AM
 -- Server version: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -185,15 +185,18 @@ INSERT INTO `news` (`id_news`, `tanggal`, `isi`) VALUES
 CREATE TABLE IF NOT EXISTS `reg_user` (
   `id` int(11) NOT NULL,
   `nama` varchar(60) NOT NULL,
-  `enc_pass` varchar(60) NOT NULL
+  `enc_pass` varchar(60) NOT NULL,
+  `alamat` char(201) NOT NULL,
+  `email` varchar(60) NOT NULL,
+  `telepon` varchar(60) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `reg_user`
 --
 
-INSERT INTO `reg_user` (`id`, `nama`, `enc_pass`) VALUES
-(1, 'andrew', '$2y$10$JaxJaxJaxJaxJaxJax222u2xN2/Ef4ef7LYksjBhNNRJN9PGJMrfO');
+INSERT INTO `reg_user` (`id`, `nama`, `enc_pass`, `alamat`, `email`, `telepon`) VALUES
+(1, 'andrew', '$2y$10$JaxJaxJaxJaxJaxJax222uqc0EPI/bXp5ez8u2blQ8IPvXITffTdC', 'qwer', 'qwer', 'qwer');
 
 -- --------------------------------------------------------
 

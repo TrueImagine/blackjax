@@ -18,17 +18,21 @@ else{
 	$id=mysqli_fetch_assoc($query);
 	$newid = $id['id']+1;
 
-
+	
 	$username=$_POST['username'];
+	$email=$_POST['email'];
+	$alamat=$_POST['alamat'];
+	$telp=$_POST['telp'];
 	$password=$_POST['password'];
 	$format = "$2y$10$";
 	$hash = "JaxJaxJaxJaxJaxJax2222";
 	$salt = $format.$hash;
 	$newpass = crypt($password,$salt);
 
-	$sql = "INSERT INTO reg_user(id, nama, enc_pass)
-		VALUES('$newid', '$username', '$newpass')";
+	$sql = "INSERT INTO reg_user(id, nama, enc_pass, email, alamat, telepon)
+		VALUES('$newid', '$username', '$newpass', '$email', '$alamat', '$telp')";
 	$daftar=mysqli_query($connection,$sql);
+	$_SESSION['message']="ID BERHASIL DIBUAT";
 	header('Location:index.php');
 	}
 	else{
