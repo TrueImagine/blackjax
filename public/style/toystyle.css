@@ -150,7 +150,8 @@ h3{
 }
 
 #kategori ul{
-	list-style:square;
+	list-style:none;
+	
 }
 
 #kategori ul li a{

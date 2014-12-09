@@ -93,7 +93,9 @@
 							$query = "SELECT * FROM jenis_barang WHERE id_jenis={$_GET['jenis']} LIMIT 1";
 							$tabel_jenis = mysqli_query($connection,$query);
 							if($baris = mysqli_fetch_assoc($tabel_jenis)){
-								echo "<h3>Kategori: {$baris['nama']}</h3>";
+								echo "<h3>Kategori:</h3>";
+								echo "<img src='button/{$baris['nama']}.jpg'/>";
+								echo "</br>";
 							}
 						}
 						//Sebaliknya, jika jenis adalah "semua", maka cetak semua
