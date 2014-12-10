@@ -86,4 +86,14 @@
 		}
 		return $return;
 	}
+	
+	// Bagian fungsi untuk admin
+	function validasiKewenangan($kewenangan){
+		if($kewenangan == 201){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
 ?>
