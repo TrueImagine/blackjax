@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 09, 2014 at 03:14 PM
+-- Generation Time: Dec 10, 2014 at 04:46 PM
 -- Server version: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -97,6 +97,13 @@ CREATE TABLE IF NOT EXISTS `h_transaksi` (
   `jumlah` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `h_transaksi`
+--
+
+INSERT INTO `h_transaksi` (`h_kode`, `id_trans`, `id_barang`, `jumlah`) VALUES
+(501, 401, 318, 3);
+
 -- --------------------------------------------------------
 
 --
@@ -105,18 +112,19 @@ CREATE TABLE IF NOT EXISTS `h_transaksi` (
 
 CREATE TABLE IF NOT EXISTS `jenis_barang` (
   `id_jenis` int(11) NOT NULL,
-  `nama` varchar(30) NOT NULL
+  `nama` varchar(30) NOT NULL,
+  `gambar` varchar(60) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `jenis_barang`
 --
 
-INSERT INTO `jenis_barang` (`id_jenis`, `nama`) VALUES
-(601, 'SHF'),
-(602, 'SIC'),
-(603, 'SCM'),
-(604, 'Nendoroid');
+INSERT INTO `jenis_barang` (`id_jenis`, `nama`, `gambar`) VALUES
+(601, 'SHF', ''),
+(602, 'SIC', ''),
+(603, 'SCM', ''),
+(604, 'Nendoroid', '');
 
 -- --------------------------------------------------------
 
@@ -210,6 +218,13 @@ CREATE TABLE IF NOT EXISTS `transaksi` (
   `subtotal` int(11) NOT NULL,
   `user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `transaksi`
+--
+
+INSERT INTO `transaksi` (`kode`, `subtotal`, `user`) VALUES
+(401, 1500000, 1);
 
 --
 -- Indexes for dumped tables
