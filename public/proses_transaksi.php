@@ -91,8 +91,8 @@
 	</head>
 	<body>
 		<div id="transaksi">
-			<h2>Detail Transaksi</h2>
-			<p>Detail pemesanan anda dapat dilihat di tabel dibawah</p>
+			<center><h2>Detail Transaksi</h2></center>
+			<p style="text-align:center">Detail pemesanan anda dapat dilihat di tabel dibawah</p>
 			<form action="proses_transaksi.php" method="POST">
 				<table>
 					<th>ID Barang</th>
@@ -127,7 +127,7 @@
 					<input type="submit" name="deal" value="Lakukan Pemesanan" />
 				</div>
 			</form>
-			<a href="shopping_cart.php">>> Kembali ke shopping cart</a>
+			<a href="shopping_cart.php"><< Kembali ke shopping cart</a>
 		</div>
 	</body>
 </html>
