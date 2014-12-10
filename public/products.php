@@ -94,7 +94,7 @@
 							$tabel_jenis = mysqli_query($connection,$query);
 							if($baris = mysqli_fetch_assoc($tabel_jenis)){
 								echo "<h3>Kategori:</h3>";
-								echo "<img src='button/{$baris['nama']}.jpg'/>";
+								echo "<img src='{$baris['gambar']}'/>";
 								echo "</br>";
 							}
 						}

@@ -94,7 +94,7 @@
 				if(mysqli_num_rows($tabel_jenis) > 0){
 					while($baris = mysqli_fetch_assoc($tabel_jenis)){
 						echo "<li><a href=\"products.php?cari=&jenis={$baris['id_jenis']}\">";
-						echo "<img src='button/{$baris['nama']}.jpg'/>";
+						echo "<img src='{$baris['gambar']}'/>";
 						echo "</a>";
 						echo "</li>";
 					}
