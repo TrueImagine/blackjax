@@ -47,13 +47,21 @@
 			
 			$detail = "INSERT INTO h_transaksi(h_kode,id_trans,id_barang,jumlah) VALUES ({$h_kode['h_kode']},{$kode_transaksi['kode']},{$id_barang},{$jumlah})";
 			mysqli_query($connection,$detail);
+			$query_stok = "SELECT stok FROM barang WHERE id_barang={$id_barang} LIMIT 1";
+			$baris_stok = mysqli_fetch_assoc(mysqli_query($connection,$query_stok));
+			$stok = $baris_stok['stok']-$jumlah;
+			$update = "UPDATE barang SET stok={$stok} WHERE id_barang={$id_barang}";
+			mysqli_query($connection,$update);
 			$h_kode['h_kode'] += 1;
 		}
+		
 		$_SESSION['message'] = "Transaksi berhasil diproses! Kami akan segera menindak lanjuti pemesanan Anda.";
 		$_SESSION['shop_list'] = null;
 		header('Location:index.php');
-	}
+	}//akhir isset($_POST['deal'])
 	
+	//Jika masuk ke halaman web ini tanpa lewat form di shopping cart, maka lempar ke index
+	//Jika tidak, proses
 	if(!empty($_POST)){
 		//elemen terakhir POST adalah confirm, confirm tidak perlu dilakukan pengecekan
 		$j = 0;
