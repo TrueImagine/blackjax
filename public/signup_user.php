@@ -20,7 +20,7 @@
 		include("../includes/left_wing.php");
 		?>
 	<div id="main-content">
-		<?php include("../includes/pesan.php"); ?>
+		<?php cetakPesan(); ?>
 		<form action="signup_user_proses.php" method="POST">
 		Username:
 		<input type="text" name="username" /><br />

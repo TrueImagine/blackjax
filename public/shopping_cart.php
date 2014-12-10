@@ -53,7 +53,7 @@
 				<h2>Shopping Cart</h2>
 				<!-- Jika ada message di session, tampilkan pesan -->
 				<!-- container untuk pesan ada di pesan.php -->
-				<?php include("../includes/pesan.php"); ?>
+				<?php cetakPesan(); ?>
 				<!-- bagian news, isi news bisa ditambah, edit, dan delete di database -->
 				
 				<!-- Container untuk cart -->

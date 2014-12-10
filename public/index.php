@@ -29,7 +29,7 @@
 			<div id="main-content">
 				<!-- Jika ada message di session, tampilkan pesan -->
 				<!-- container untuk pesan ada di pesan.php -->
-				<?php include("../includes/pesan.php"); ?>
+				<?php cetakPesan(); ?>
 				<!-- bagian news, isi news bisa ditambah, edit, dan delete di database -->
 				<div id="news">
 					<h2>Latest news</h2>

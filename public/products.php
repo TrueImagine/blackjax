@@ -26,7 +26,7 @@
 			
 			<!-- main-content di products berfungsi untuk menampilkan produk -->
 			<div id="main-content">
-				<?php include("../includes/pesan.php"); ?>
+				<?php cetakPesan(); ?>
 				<h2>Produk</h2>
 				<?php
 					// Apabila jenis barang dan id barang belum dipilih,

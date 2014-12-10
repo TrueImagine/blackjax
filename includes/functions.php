@@ -20,6 +20,17 @@
 		return $output;
 	}
 	
+	function cetakPesan(){
+		if(!empty($_SESSION['message'])){
+			echo "<div id=\"message\">";
+			echo "<h3>Notice:</h3>";
+			echo $_SESSION["message"];
+			echo "</div>";
+			$_SESSION['message'] = null;
+			echo "<br>";
+		}
+	}
+	
 	function barang_berdasarkan_jenis_dan_nama($jenis,$nama){
 		global $connection;
 		
