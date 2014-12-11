@@ -15,7 +15,7 @@
 <!DOCTYPE html>
 	<head>
 		<title>Kliktoys.com | Pengaturan Konten Website</title>
-		<link rel="stylesheet" type="text/css" href="toystyle.css" />
+		
 		<script>
 			function deleteContent($id){
 				if(confirm("Apakah Anda yakin ingin menghapus konten?"){
@@ -23,8 +23,12 @@
 				}
 			}
 		</script>
+		
+		<link rel="stylesheet" type="text/css" href="style/admin.css" />
 	</head>
 	<body>
+		<div id="body">
+			<h2>Pengaturan Konten Website</h2>
 		<?php
 			//cetak message disini
 			cetakPesan();
@@ -151,6 +155,14 @@
 				$tabel_contents = mysqli_query($connection,$query);
 				
 				echo "<table>";
+				echo "<tr>";
+				echo "<th>";
+				echo "Judul Konten";
+				echo "</th>";
+				echo "<th>";
+				echo "Hapus Konten";
+				echo "</th>";
+				echo "</tr>";
 				while($content = mysqli_fetch_assoc($tabel_contents)){
 					echo "<tr>";
 					echo "<td>";
@@ -192,6 +204,7 @@
 		<?php 
 			}//akhir menu utama
 		?>
+		</div>
 	</body>
 	<?php mysqli_close($connection); ?>
 </html>

@@ -9,12 +9,14 @@
 	}
 		
 ?>
-
-<html>
-<head>
-</head>
-
+<!DOCTYPE html>
+	<head>
+		<title>Kliktoys.com | Admin</title>
+		<link rel="stylesheet" type="text/css" href="style/admin.css" />
+	</head>
 <body>
+	<div id="body">
+	<h2>Pengaturan Produk</h2>
 	<?php
 		$sql="SELECT * from barang";
 		$hasil=mysqli_query($connection,$sql);
@@ -119,6 +121,7 @@
 		echo "<a href='admin.php'>BACK</a>";
 		
 	?>
+	</div>
 </body>
 
 </html>

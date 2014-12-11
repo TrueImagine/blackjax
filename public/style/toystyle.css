@@ -5,10 +5,15 @@ body{
 	background:black;
 	margin:0px;
 	padding:0px;
+	font-family:Calibri,Arial,sans-serif;
 }
 
 h3{
 	margin:10px;
+}
+
+input[type="text"], input[type="password"]{
+	width:150px;
 }
 /* akhir bagian tag html */
 
@@ -29,9 +34,16 @@ h3{
 	background:yellow;
 }
 
+#header img{
+	margin:0px;
+	padding:0px;
+	width:500px;
+	float:left;
+}
+
 #user-login{
-	width:220px;
-	padding:15px;
+	width:240px;
+	padding:10px;
 	float:right;
 	background:#CCFF66;
 	height:88px;
@@ -54,7 +66,7 @@ h3{
 
 #navi{
 	float:left;
-	width:65%;
+	width:500px;
 	margin:0px;
 	padding:15px;
 	list-style:none;
@@ -121,7 +133,7 @@ h3{
 	margin-top:0px;
 }
 
-#mini-cart table,#mini-cart th,#mini-cart td{
+#mini-cart table,#mini-cart tr, #mini-cart th,#mini-cart td{
 	border:2px solid black;
 	border-collapse:collapse;
 	border-radius:0px;
@@ -169,10 +181,11 @@ h3{
 
 /* bagian main-content */
 #main-content{
-	float:left;
+	float:right;
 	padding:20px;
 	margin:0px;
-	width:69.7%;
+	width:550px;
+	min-height:550px;
 	background:white;
 	border:1px solid transparent;
 	border-radius:50px 0px 0px 0px;
@@ -216,28 +229,29 @@ h3{
 
 /*untuk contact us form*/
 #contact_us{
-	width:400px;
+	width:450px;
 	margin:0px auto;
-}
-
-#contact-us table{
-	width:300px;
 }
 
 #contact_us td{
 	vertical-align:top;
+	width:120px;
 }
 
-#contact_us td:odd-chlid{
-	width:150px;
-	margin:0px;
-}
-
-#contact_us td:even-chlid{
+#contact_us input[type="text"]{
 	width:200px;
-	margin:0px;
 }
 
+#contact_us textarea{
+	width:200px;
+}
+
+#edit_profile{
+	padding-left:50px;
+	margin:20px;
+	width:400px;
+	margin:0px auto;
+}
 /* akhir content */
 
 /* bagian footer */

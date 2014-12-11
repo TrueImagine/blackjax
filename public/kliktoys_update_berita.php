@@ -6,11 +6,14 @@
 		header('Location:login_admin.php');
 	}
 ?>
-	<h3>Isi berita</h3>
-	<h4>Peringatan!</h4>
-	<p>
-		Mengubah konten berita akan mempengaruhi konten berita di halaman lain!
-	</p>
+<!DOCTYPE html>
+	<head>
+		<title>Kliktoys.com | Admin</title>
+		<link rel="stylesheet" type="text/css" href="style/admin.css" />
+	</head>
+	<body>
+	<div id="body">
+	<h2>Isi berita</h2>
 	<?php
 		$query = "SELECT * FROM news";
 		$tabel_berita = mysqli_query($connection,$query);
@@ -48,6 +51,9 @@
 		echo "</form>";
 		echo "<a href=\"admin.php\">>> Kembali ke menu admin</a>"
 	?>
+	</div>
+	</body>
+	</html>
 <?php
 	mysqli_close($connection);
 ?>

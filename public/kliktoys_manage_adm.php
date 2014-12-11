@@ -8,7 +8,14 @@
 		header('Location:admin.php');
 	}
 ?>
-
+<!DOCTYPE html>
+	<head>
+		<title>Kliktoys.com | Admin</title>
+		<link rel="stylesheet" type="text/css" href="style/admin.css" />
+	</head>
+	<body>
+	<div id="body">
+	<h2>Pengaturan Admin</h2>
 <?php
 	$sql="SELECT * from admin";
 	$hasil=mysqli_query($connection,$sql);
@@ -64,3 +71,6 @@
 	echo "</br>";
 	echo "<a href='signup_admin	.php'>SIGN UP</a>";
 ?>
+	</div>
+	</body>
+</html>

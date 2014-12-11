@@ -17,8 +17,11 @@
 <!DOCTYPE html>
 	<head>
 		<title>Kliktoys.com | Admin</title>
+		<link rel="stylesheet" type="text/css" href="style/admin.css" />
 	</head>
 	<body>
+		<div id="body">
+		<h2>Menu Utama</h2>
 		<div id="login-info">
 			</h2>Selamat Datang!</h2>
 			<table>
@@ -60,7 +63,6 @@
 				</li>
 				<li><a href="kliktoys_update_berita.php">Pengaturan Berita Terbaru</a></li>
 				<li><a href="kliktoys_product.php">Pengaturan Produk</a></li>
-				<li><a href="kliktoys_trans.php">Pengaturan Transaksi</a></li>
 				<li>
 					<?php
 						if(validasiKewenangan($_SESSION['kewenangan'])){
@@ -76,6 +78,7 @@
 				</li>
 				<li><a href="kliktoys_manage_usr.php">Pengaturan User</a></li>
 			</ul>
+		</div>
 		</div>
 	</body>
 	<?php mysqli_close($connection); ?>
