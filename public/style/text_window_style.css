@@ -1,0 +1,8 @@
+/* Style khusus untuk text-window box */
+#text-window{
+	border:2px dashed green;
+	width:500px;
+	margin:20px;
+	padding:10px;
+}
+

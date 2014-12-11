@@ -182,6 +182,7 @@ h3{
 	border:0px;
 }
 
+/*untuk news box*/
 #news{
 	margin:10px;
 	padding:20px;
@@ -199,16 +200,44 @@ h3{
 	margin-top:0px;
 	margin-bottom:0.5em;
 }
+/*akhir news box*/
 
+/* untuk searchbox di product */
 #form-cari-productsphp label{
 	display:inline-block;
 	width:100px;
 }
 
+/* untuk shopping-cart */
 #shopping-cart table, #shopping-cart th,#shopping-cart td{
 	border:1px solid black;
 	border-collapse:collapse;
 }
+
+/*untuk contact us form*/
+#contact_us{
+	width:400px;
+	margin:0px auto;
+}
+
+#contact-us table{
+	width:300px;
+}
+
+#contact_us td{
+	vertical-align:top;
+}
+
+#contact_us td:odd-chlid{
+	width:150px;
+	margin:0px;
+}
+
+#contact_us td:even-chlid{
+	width:200px;
+	margin:0px;
+}
+
 /* akhir content */
 
 /* bagian footer */

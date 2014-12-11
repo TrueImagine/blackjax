@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 10, 2014 at 04:46 PM
+-- Generation Time: Dec 11, 2014 at 03:54 PM
 -- Server version: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -65,24 +65,24 @@ CREATE TABLE IF NOT EXISTS `barang` (
 --
 
 INSERT INTO `barang` (`id_barang`, `nama`, `id_jenis`, `harga`, `stok`, `sml_logo`, `big_logo`) VALUES
-(301, 'SHF Kamen Rider Zangetsu Melon Energy', 601, 1000000, 20, 'image/shf/SHF Kamen Rider Zangetsu Melon Energy.jpg', ''),
-(302, 'SIC Kamen Rider OOO Tatoba', 602, 900000, 2, 'image/sic/SIC Kamen Rider OOO Tatoba.jpg', ''),
-(303, 'SCM Aquarius Camus', 603, 1200000, 5, 'image/scm/SCM Aquarius Camus.jpg', ''),
-(304, 'NENDOROID Miku Racing', 604, 780000, 7, 'image/nendoroid/NENDOROID Miku Racing.jpg', ''),
-(305, 'SHF Kamen Rider Wizard Flame Style', 601, 500000, 1, 'image/shf/SHF Kamen Rider Wizard Flame Style.jpg', ''),
-(306, 'SHF Kamen Rider Gaim Orange Arms', 601, 650000, 2, 'image/shf/SHF Kamen Rider Gaim Orange Arms.jpg', ''),
-(307, 'SHF Kamen Rider Baron Banana Arms', 601, 350000, 10, 'image/shf/SHF Kamen Rider Baron Banana Arms.jpg', ''),
-(308, 'SIC Kamen Rider Wizard Flame Style', 602, 900000, 8, 'image/sic/SIC Kamen Rider Wizard Flame Style.jpg', ''),
-(309, 'SHF Kamen Rider Black Renewal', 601, 700000, 7, 'image/shf/SHF Kamen Rider Black Renewal.jpg', ''),
-(310, 'SIC Kamen Rider OOO Sagozo', 602, 950000, 8, 'image/sic/SIC Kamen Rider OOO Sagozo.jpg', ''),
-(311, 'SIC Kamen Rider Kabuto', 602, 990000, 8, 'image/sic/SIC Kamen Rider Kabuto.jpg', ''),
-(312, 'SIC Kamen Rider Ryuki', 602, 880000, 1, 'image/sic/SIC Kamen Rider Ryuki.jpg', ''),
-(313, 'SCM Pegasus Kouga', 603, 900000, 8, 'image/scm/SCM Pegasus Kouga.jpg', ''),
-(314, 'SCM Pegasus Seiya', 603, 1000000, 10, 'image/scm/SCM Pegasus Seiya.jpg', ''),
-(315, 'SCM Gemini Saga', 603, 1200000, 8, 'image/scm/SCM Gemini Saga.jpg', ''),
-(316, 'NENDOROID Sinon', 604, 450000, 8, 'image/nendoroid/NENDOROID Sinon.jpg', ''),
-(317, 'NENDOROID Azusa', 604, 400000, 4, 'image/nendoroid/NENDOROID Azusa.jpg', ''),
-(318, 'NENDOROID Elsa', 604, 500000, 3, 'image/nendoroid/NENDOROID Elsa.jpg', '');
+(301, 'SHF Kamen Rider Zangetsu Melon Energy', 601, 1000000, 20, 'image/SHF Kamen Rider Zangetsu Melon Energy.jpg', ''),
+(302, 'SIC Kamen Rider OOO Tatoba', 602, 900000, 2, 'image/SIC Kamen Rider OOO Tatoba.jpg', ''),
+(303, 'SCM Aquarius Camus', 603, 1200000, 5, 'image/SCM Aquarius Camus.jpg', ''),
+(304, 'NENDOROID Miku Racing', 604, 780000, 7, 'image/NENDOROID Miku Racing.jpg', ''),
+(305, 'SHF Kamen Rider Wizard Flame Style', 601, 500000, 1, 'image/SHF Kamen Rider Wizard Flame Style.jpg', ''),
+(306, 'SHF Kamen Rider Gaim Orange Arms', 601, 650000, 2, 'image/SHF Kamen Rider Gaim Orange Arms.jpg', ''),
+(307, 'SHF Kamen Rider Baron Banana Arms', 601, 350000, 10, 'image/SHF Kamen Rider Baron Banana Arms.jpg', ''),
+(308, 'SIC Kamen Rider Wizard Flame Style', 602, 900000, 8, 'image/SIC Kamen Rider Wizard Flame Style.jpg', ''),
+(309, 'SHF Kamen Rider Black Renewal', 601, 700000, 7, 'image/SHF Kamen Rider Black Renewal.jpg', ''),
+(310, 'SIC Kamen Rider OOO Sagozo', 602, 950000, 8, 'image/SIC Kamen Rider OOO Sagozo.jpg', ''),
+(311, 'SIC Kamen Rider Kabuto', 602, 990000, 8, 'image/SIC Kamen Rider Kabuto.jpg', ''),
+(312, 'SIC Kamen Rider Ryuki', 602, 880000, 1, 'image/SIC Kamen Rider Ryuki.jpg', ''),
+(313, 'SCM Pegasus Kouga', 603, 900000, 8, 'image/SCM Pegasus Kouga.jpg', ''),
+(314, 'SCM Pegasus Seiya', 603, 1000000, 10, 'image/SCM Pegasus Seiya.jpg', ''),
+(315, 'SCM Gemini Saga', 603, 1200000, 8, 'image/SCM Gemini Saga.jpg', ''),
+(316, 'NENDOROID Sinon', 604, 450000, 8, 'image/NENDOROID Sinon.jpg', ''),
+(317, 'NENDOROID Azusa', 604, 400000, 4, 'image/NENDOROID Azusa.jpg', ''),
+(318, 'NENDOROID Elsa', 604, 500000, 3, 'image/NENDOROID Elsa.jpg', '');
 
 -- --------------------------------------------------------
 
@@ -121,10 +121,10 @@ CREATE TABLE IF NOT EXISTS `jenis_barang` (
 --
 
 INSERT INTO `jenis_barang` (`id_jenis`, `nama`, `gambar`) VALUES
-(601, 'SHF', ''),
-(602, 'SIC', ''),
-(603, 'SCM', ''),
-(604, 'Nendoroid', '');
+(601, 'SHF', 'button/shf.jpg'),
+(602, 'SIC', 'button/sic.jpg'),
+(603, 'SCM', 'button/scm.jpg'),
+(604, 'Nendoroid', 'button/nendoroid.jpg');
 
 -- --------------------------------------------------------
 
@@ -183,7 +183,8 @@ CREATE TABLE IF NOT EXISTS `news` (
 --
 
 INSERT INTO `news` (`id_news`, `tanggal`, `isi`) VALUES
-(801, '2014-12-06', 'Tertanggal hari ini, web kliktoys resmi dibuka');
+(801, '2014-12-11', 'Berita pertama saya'),
+(802, '2014-12-11', 'Yeahhhh');
 
 -- --------------------------------------------------------
 
@@ -206,6 +207,49 @@ CREATE TABLE IF NOT EXISTS `reg_user` (
 
 INSERT INTO `reg_user` (`id`, `nama`, `enc_pass`, `alamat`, `email`, `telepon`) VALUES
 (1, 'andrew', '$2y$10$JaxJaxJaxJaxJaxJax222uqc0EPI/bXp5ez8u2blQ8IPvXITffTdC', 'qwer', 'qwer', 'qwer');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `subjects`
+--
+
+CREATE TABLE IF NOT EXISTS `subjects` (
+  `id` int(11) NOT NULL,
+  `subject_name` varchar(60) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `subjects`
+--
+
+INSERT INTO `subjects` (`id`, `subject_name`) VALUES
+(901, 'Home'),
+(902, 'Products'),
+(903, 'About Us'),
+(904, 'Contact Us');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `text_window`
+--
+
+CREATE TABLE IF NOT EXISTS `text_window` (
+  `id` int(11) NOT NULL,
+  `judul` varchar(60) NOT NULL,
+  `isi` varchar(500) NOT NULL,
+  `subject` int(11) NOT NULL,
+  `visible` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `text_window`
+--
+
+INSERT INTO `text_window` (`id`, `judul`, `isi`, `subject`, `visible`) VALUES
+(2, 'Hubungi Kami!', 'Silahkan berikan kritik dan saran Anda melalui contact form dibawah.', 904, 1),
+(3, 'Halo Pengunjung!', 'Kliktoys.com adalah portal milik perusahaan Kliktoys Inc. yang menawarkan produk hobby dengan harga yang terjangkau. Salah satu prinsip kami adalah "Hobby is for Everyone", yang berarti bahwa siapa saja berhak untuk memiliki dan menjalani hobby mereka.\r\nSemoga kalian menikmati kunjungan ke website kami ini!', 903, 1);
 
 -- --------------------------------------------------------
 
@@ -279,6 +323,18 @@ ALTER TABLE `reg_user`
  ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `subjects`
+--
+ALTER TABLE `subjects`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `text_window`
+--
+ALTER TABLE `text_window`
+ ADD PRIMARY KEY (`id`), ADD KEY `subject` (`subject`);
+
+--
 -- Indexes for table `transaksi`
 --
 ALTER TABLE `transaksi`
@@ -315,6 +371,12 @@ ADD CONSTRAINT `barang_ibfk_1` FOREIGN KEY (`id_jenis`) REFERENCES `jenis_barang
 ALTER TABLE `h_transaksi`
 ADD CONSTRAINT `h_transaksi_ibfk_1` FOREIGN KEY (`id_trans`) REFERENCES `transaksi` (`kode`),
 ADD CONSTRAINT `h_transaksi_ibfk_2` FOREIGN KEY (`id_barang`) REFERENCES `barang` (`id_barang`);
+
+--
+-- Constraints for table `text_window`
+--
+ALTER TABLE `text_window`
+ADD CONSTRAINT `text_window_ibfk_1` FOREIGN KEY (`subject`) REFERENCES `subjects` (`id`);
 
 --
 -- Constraints for table `transaksi`

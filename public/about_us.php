@@ -9,6 +9,7 @@
 		<title>Kliktoys.com | Your one stop shop to games and toys!</title>
 		<link rel="stylesheet" type="text/css" href="style/toystyle.css" />
 		<link rel="stylesheet" type="text/css" href="style/productstyle.css" />
+		<link rel="stylesheet" type="text/css" href="style/text_window_style.css" />
 </head>
 <body>	
 			<!-- div body menandakan container isi (header,content,dsb) dari dokumen web,

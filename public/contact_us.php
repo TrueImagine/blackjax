@@ -9,6 +9,7 @@
 		<title>Kliktoys.com | Your one stop shop to games and toys!</title>
 		<link rel="stylesheet" type="text/css" href="style/toystyle.css" />
 		<link rel="stylesheet" type="text/css" href="style/productstyle.css" />
+		<link rel="stylesheet" type="text/css" href="style/text_window_style.css" />
 </head>
 <body>	
 			<!-- div body menandakan container isi (header,content,dsb) dari dokumen web,
@@ -42,14 +43,14 @@
 						echo "</div>";
 					}
 				?>
-				<form action="contact_us_proses.php" method="POST">
+				<form id="contact_us" action="contact_us_proses.php" method="POST">
 				<table>
 					<tr>
 						<td>
 							Email:
 						</td>
 						<td>
-							<input type="text" name="email" /><br />
+							<input type="text" placeholder="e-mail@example.com" name="email" /><br />
 						</td>
 					</tr>
 					<tr>
@@ -57,7 +58,7 @@
 							Kritik dan saran:
 						</td>
 						<td>
-							<textarea name="krisan" rows="4"></textarea><br />
+							<textarea placeholder="Kritik dan Saran Anda..." name="krisan" rows="4"></textarea>
 						</td>
 					</tr>
 					<tr>
