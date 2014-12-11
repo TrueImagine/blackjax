@@ -8,16 +8,24 @@
 		header('Location:admin.php');
 	}
 ?>
+<!DOCTYPE html>
+	<head>
+		<title>Kliktoys.com | Admin</title>
+		<link rel="stylesheet" type="text/css" href="style/admin.css" />
+	</head>
+	<body>
+		<div id="body">
+			<h2>Signup Admin</h2>
 <?php
 	cetakPesan();
 	echo "<form action='signup_admin_proses.php' method='POST'>";
-	echo "Username:";
+	echo "<label>Username:</label>";
 	echo "<input type='text' name='username' /><br />";
-	echo "Password:";
+	echo "<label>Password:</label>";
 	echo "<input type='password' name='password' /><br />";
-	echo "Re-Type Pasword:";
+	echo "<label>Re-Type Password:</label>";
 	echo "<input type='password' name='repassword' /><br />";
-	echo "Kewenangan:";
+	echo "<label>Kewenangan:</label>";
 	echo "<select name='kewenangan'>";
 			$sql="SELECT * from kewenangan";
 			$hasil=mysqli_query($connection,$sql);
@@ -28,5 +36,8 @@
 	echo "<input type='submit' name='signup' value='Signup' />";
 	echo "</form>";
 	echo "<a href='kliktoys_manage_adm.php'>BACK</a>";
-
 ?>
+</div>
+	</body>
+	<?php mysqli_close($connection); ?>
+</html>

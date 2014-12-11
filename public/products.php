@@ -80,7 +80,7 @@
 						$item = barang_menurut_id($_GET['id']);
 						
 						if($baris = mysqli_fetch_assoc($item)){
-							echo "<img src =\"{$baris['big_logo']}\" href=\"{$baris['big_logo']}\" />";
+							echo "<img src =\"{$baris['sml_logo']}\" href=\"{$baris['big_logo']}\" style=\"width:400px;\"/>";
 							echo "<ul id=\"ket_barang\">";
 							echo "<li>";
 							echo "Nama: {$baris{'nama'}}";

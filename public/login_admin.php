@@ -15,9 +15,9 @@
 			<!-- form login berisi username dan password untuk login -->
 			<!-- hasil input from akan diproses di login_admin_proses.php -->
 			<form action="login_admin_proses.php" method="POST">
-				Username:
+				<label>Username:</label>
 				<input type="text" name="username" /><br />
-				Password:
+				<label>Password:</label>
 				<input type="password" name="password" /><br />
 				<input type="submit" name="login" value="Login" />
 			</form>
