@@ -21,10 +21,20 @@
 	</div>
 	<!-- navigation bar -->
 	<ul id="navi">
-		<li><a href="index.php">Home</a></li>
-		<li><a href="products.php">Browse Products</a></li>
-		<li><a href="about_us.php">About us</a></li>
-		<li><a href="contact_us.php">Contact us</a></li>
+		<?php
+			$query = "SELECT * FROM subjects";
+			$tabel_subject = mysqli_query($connection,$query);
+			while($baris = mysqli_fetch_assoc($tabel_subject)){
+				echo "<li>";
+				echo "<a href=\"";
+				$nama_page = strtolower($baris['subject_name']);
+				$nama_page = str_replace(" ","_",$nama_page);
+				echo $nama_page.".php\">";
+				echo $baris['subject_name'];
+				echo "</a>";
+				echo "</li>";
+			}
+		?>
 	</ul>
 	<p class="clearFloat"></p>
 </div><!-- end of header -->

@@ -7,4 +7,5 @@
 6=jenis_barang
 7=krisan
 8=news
-9=web_parts
+9=subjects
+10=text-window

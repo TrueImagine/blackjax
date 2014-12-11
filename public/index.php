@@ -48,6 +48,22 @@
 					?>
 				</div><!-- end of news -->
 				
+				<?php
+					//Bagian content (text-window)
+					//Bagian ini hanya akan muncul bila isi database text-window terisi
+					$query = "SELECT * FROM text_window WHERE subject = 901 AND visible=1";
+					$tabel_konten = mysqli_query($connection,$query);
+					
+					while($konten = mysqli_fetch_assoc($tabel_konten)){
+						echo "<div id=text-window>";
+						echo "<h3>{$konten['judul']}</h3>";
+						echo "<p>";
+						echo $konten['isi'];
+						echo "</p>";
+						echo "</div>";
+					}
+				?>
+				
 				<!-- bagian product-line menampilkan beberapa produk. Jumlah produk yang ditampilkan
 				dan aturannya tergantung dari rules php -->
 				<div id="product-line">

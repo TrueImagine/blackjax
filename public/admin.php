@@ -38,6 +38,10 @@
 			</table>
 		</div>
 		<div id="operasi">
+			<?php
+				//cetak pesan disini
+				cetakPesan();
+			?>
 			<p>
 				Silahkan pilih salah satu operasi:
 			</p>
@@ -54,6 +58,7 @@
 						}
 					?>
 				</li>
+				<li><a href="kliktoys_update_berita.php">Pengaturan Berita Terbaru</a></li>
 				<li><a href="kliktoys_product.php">Pengaturan Produk</a></li>
 				<li><a href="kliktoys_trans.php">Pengaturan Transaksi</a></li>
 				<li>
