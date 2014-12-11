@@ -82,7 +82,7 @@
 		<input type="text" name="alamat" /><br />
 		No Telp:
 		<input type="text" name="telp" /><br />
-		<input type="submit" name="signup" value="Signup" />
+		<input type="submit" name="EDIT" value="EDIT" />
 	</form>
 			</div>
 			<p class="clearFloat"></p>

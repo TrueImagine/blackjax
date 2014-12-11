@@ -5,7 +5,7 @@
 		if(!empty($barang)){
 			$output = "<div id = \"produk\">";
 			$output .= "<a href = \"products.php?jenis={$barang["id_jenis"]}&id={$barang["id_barang"]}\">";
-			$output .= "<img src=\"{$barang["sml_logo"]}\" ";
+			$output .= "<img src='{$barang["sml_logo"]}'";
 			$output .= "href = \"products.php?jenis={$barang["id_jenis"]}&id={$barang["id_barang"]}\"";
 			$output .= " />";
 			$output .= "</a>";
