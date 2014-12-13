@@ -220,22 +220,20 @@ h3{
 	margin:0px auto;
 }
 
-#contact-us table{
-	width:300px;
+#contact_us table{
+	margin:0px auto;
 }
 
 #contact_us td{
 	vertical-align:top;
 }
 
-#contact_us td:odd-chlid{
-	width:150px;
-	margin:0px;
+#contact_us input{
+	width:200px;
 }
 
-#contact_us td:even-chlid{
+#contact_us textarea{
 	width:200px;
-	margin:0px;
 }
 
 /* akhir content */
