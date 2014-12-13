@@ -30,51 +30,13 @@
 				<!-- Jika ada message di session, tampilkan pesan -->
 				<!-- container untuk pesan ada di pesan.php -->
 				<?php cetakPesan(); ?>
-				<!-- bagian news, isi news bisa ditambah, edit, dan delete di database -->
-				<div id="news">
-					<h2>Latest news</h2>
-					<?php
-						$query = "SELECT * FROM news LIMIT 3";
-						$tabel_berita = mysqli_query($connection,$query);
-						
-						while($baris = mysqli_fetch_assoc($tabel_berita)){
-							echo "<h4>";
-							echo $baris['tanggal'];
-							echo "</h4>";
-							echo "<p>";
-							echo $baris['isi'];
-							echo "</p>";
-						}
-					?>
-				</div><!-- end of news -->
 				
-				<h1>EDIT PROFILE: </h1>
-	<?php
-		$sql="SELECT * from reg_user WHERE nama='$_SESSION[reg_user]'";
-		$hasil = mysqli_query($connection, $sql);
-		$baris=mysqli_fetch_assoc($hasil);
-		echo "username: ";
-		echo $baris['nama'];
-		echo "<br>";
-		echo "<br>";
-		echo "email: ";
-		echo $baris['email'];
-		echo "<br>";
-		echo "<br>";
-		echo "alamat: ";
-		echo $baris['alamat'];
-		echo "<br>";
-		echo "<br>";
-		echo "no telp: ";
-		echo $baris['telepon'];
-		echo "<br>";
-		echo "<br>";
-	?>
+				<h1>Edit Profile: </h1>
 	<?php cetakPesan(); ?>
-	<form action="edit_user_profile_proses.php" method="POST" >
+	<form id = "edit_profile" action="edit_user_profile_proses.php" method="POST" >
 		Password:
 		<input type="password" name="password" /><br />
-		Re-Type Pasword:
+		Re-Type Password:
 		<input type="password" name="repassword" /><br />
 		Email:
 		<input type="text" name="email" /><br />

@@ -71,7 +71,6 @@
 							<?php
 								//Jika shop-list kosong, maka buat baris kosong dan tampilkan pesan
 								if(empty($_SESSION['shop_list'])){
-									echo "<tr><td></td><td></td><td></td><td></td><td></td></tr>";
 									$message = "Shopping cart Anda masih kosong!";
 								}
 								//Jika shop-list sudah ada, maka tampilkan barang-barangnya beserta
@@ -103,6 +102,11 @@
 								}
 							?>
 						</table>
+						<?php
+							if(isset($message)){
+								echo $message;
+							}
+						?>
 						<?php
 							//Jika shop-list ada, maka tampilkan tombol submit
 							if(!empty($_SESSION["shop_list"])){

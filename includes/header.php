@@ -1,6 +1,6 @@
 <!-- header berisi banner(gambar) dan top navigation(navi) -->
 <div id="header">
-	<img src="" placeholder="Kliktoys Banner" />
+	<img src="image/BANNER.jpg" placeholder="Kliktoys Banner" />
 	<div id="user-login">
 	<?php
 		//jika belum login, maka tampilkan form login, form login dimasukkan dalam form_login.php

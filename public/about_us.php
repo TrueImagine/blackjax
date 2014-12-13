@@ -23,7 +23,6 @@
 				daftar link bisa di edit di bagian kategori barang -->
 			<!-- bagian left-wing dimasukkan ke left_wing.php -->
 			<?php include("../includes/left_wing.php")?>
-			
 			<!-- main-content menampilkan news dan lini produk terbaru -->
 			<div id="main-content">
 				<h2>About Us</h2>

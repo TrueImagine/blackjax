@@ -4,7 +4,7 @@
 	include("../includes/connection.php");
 	include("../includes/functions.php");
 ?>
-
+<!DOCTYPE html>
 <html>
 <head>
 		<title>Kliktoys.com | Your one stop shop to games and toys!</title>
@@ -21,12 +21,13 @@
 		?>
 	<div id="main-content">
 		<?php cetakPesan(); ?>
+		<h2>Signup User</h2>
 		<form action="signup_user_proses.php" method="POST">
 		Username:
 		<input type="text" name="username" /><br />
 		Password:
 		<input type="password" name="password" /><br />
-		Re-Type Pasword:
+		Re-Type Password:
 		<input type="password" name="repassword" /><br />
 		Email:
 		<input type="text" name="email" /><br />

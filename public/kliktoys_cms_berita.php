@@ -5,7 +5,13 @@
 	include("../includes/connection.php");
 	include("../includes/functions.php");
 ?>
-
+<!DOCTYPE html>
+	<head>
+		<title>Kliktoys.com | Admin</title>
+		<link rel="stylesheet" type="text/css" href="style/admin.css" />
+	</head>
+	<body>
+		<div id="body">
 <?php
 	//Proses add berita
 	if(isset($_POST['add_berita'])){
@@ -62,7 +68,7 @@
 		$konten_berita = mysqli_fetch_assoc($tabel_berita);
 		
 		?>
-			<h3>Ubah berita</h3>
+			<h2>Pengaturan Berita</h2>
 			<!-- form dibawah berfungsi untuk melakukan edit berita -->
 			<form action="kliktoys_cms_berita.php?id_berita=<?php echo $konten_berita['id_news']; ?>" method="POST">
 				<label>Tanggal:</label>
@@ -80,12 +86,13 @@
 				href="kliktoys_cms_berita.php?del_berita=<?php echo $konten_berita['id_news']; ?>">
 				>> Hapus berita ini
 			</a>
+			<a href="kliktoys_update_berita.php">>> Kembali</a>
 		<?php
 	}	//akhir dari if(isset($_GET['edit_berita']))
 	//Tampilan form untuk tambah berita
 	else if(isset($_GET['add_berita'])){
 	?>
-		<h3>Tambah Berita</h3>
+		<h2>Tambah Berita</h2>
 		<!-- form dibawah berfungsi untuk melakukan tambah berita -->
 		<form action="kliktoys_cms_berita.php?id_berita=<?php echo $konten_berita['id_news']; ?>" method="POST">
 			<label>Tanggal:</label>
@@ -98,6 +105,10 @@
 			<input type="reset" name="reset" value="Reset" />
 			<input type="submit" name="add_berita" value="Add Berita" />
 		</form>
+		<a href="kliktoys_update_berita.php">>> Kembali</a>
 	<?php
 	} //akhir dari if(isset($_GET['add_berita']))
 ?>
+	</div>
+	</body>
+</html>

@@ -9,17 +9,39 @@
 	}
 		
 ?>
-
-<html>
-<head>
-</head>
-
+<!DOCTYPE html>
+	<head>
+		<title>Kliktoys.com | Admin</title>
+		<link rel="stylesheet" type="text/css" href="style/admin.css" />
+	</head>
 <body>
+	<div id="body">
+	<h2>Pengaturan Produk</h2>
 	<?php
 		$sql="SELECT * from barang";
 		$hasil=mysqli_query($connection,$sql);
 		cetakPesan();
 		echo "<table border='1'>";
+		echo "<tr>";
+		echo "<td>";
+		echo "ID";
+		echo "</td>";
+		echo "<td>";
+		echo "NAMA";
+		echo "</td>";
+		echo "<td>";
+		echo "JENIS";
+		echo "</td>";
+		echo "<td>";
+		echo "HARGA";
+		echo "</td>";
+		echo "<td>";
+		echo "STOK";
+		echo "</td>";
+		echo "<td>";
+		echo "GAMBAR SMALL";
+		echo "</td>";
+		echo "</tr>";
 		while($baris = mysqli_fetch_assoc($hasil)){
 			echo "<tr>";
 			echo "<td>";
@@ -96,8 +118,10 @@
 		echo "</tr>";
 		
 		echo "</table>";
+		echo "<a href='admin.php'>BACK</a>";
 		
 	?>
+	</div>
 </body>
 
 </html>
