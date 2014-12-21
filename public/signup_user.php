@@ -22,18 +22,18 @@
 	<div id="main-content">
 		<?php cetakPesan(); ?>
 		<h2>Signup User</h2>
-		<form action="signup_user_proses.php" method="POST">
-		Username:
+		<form id="signup" action="signup_user_proses.php" method="POST">
+		<label>Username:</label>
 		<input type="text" name="username" /><br />
-		Password:
+		<label>Password:</label>
 		<input type="password" name="password" /><br />
-		Re-Type Password:
+		<label>Re-Type Password:</label>
 		<input type="password" name="repassword" /><br />
-		Email:
-		<input type="text" name="email" /><br />
-		Alamat:
+		<label>Email:</label>
+		<input type="text" name="email" placeholder="example@e-mail.com" /><br />
+		<label>Alamat:</label>
 		<input type="text" name="alamat" /><br />
-		No Telp:
+		<label>No Telp:</label>
 		<input type="text" name="telp" /><br />
 		<input type="submit" name="signup" value="Signup" />
 		</form>

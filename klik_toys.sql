@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 11, 2014 at 03:54 PM
+-- Generation Time: Dec 21, 2014 at 05:55 AM
 -- Server version: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -65,18 +65,18 @@ CREATE TABLE IF NOT EXISTS `barang` (
 --
 
 INSERT INTO `barang` (`id_barang`, `nama`, `id_jenis`, `harga`, `stok`, `sml_logo`, `big_logo`) VALUES
-(301, 'SHF Kamen Rider Zangetsu Melon Energy', 601, 1000000, 20, 'image/SHF Kamen Rider Zangetsu Melon Energy.jpg', ''),
-(302, 'SIC Kamen Rider OOO Tatoba', 602, 900000, 2, 'image/SIC Kamen Rider OOO Tatoba.jpg', ''),
+(301, 'SHF Kamen Rider Zangetsu Melon Energy', 601, 1000000, 19, 'image/SHF Kamen Rider Zangetsu Melon Energy.jpg', ''),
+(302, 'SIC Kamen Rider OOO Tatoba', 602, 900000, 0, 'image/SIC Kamen Rider OOO Tatoba.jpg', ''),
 (303, 'SCM Aquarius Camus', 603, 1200000, 5, 'image/SCM Aquarius Camus.jpg', ''),
-(304, 'NENDOROID Miku Racing', 604, 780000, 7, 'image/NENDOROID Miku Racing.jpg', ''),
+(304, 'NENDOROID Miku Racing', 604, 780000, 2, 'image/NENDOROID Miku Racing.jpg', ''),
 (305, 'SHF Kamen Rider Wizard Flame Style', 601, 500000, 1, 'image/SHF Kamen Rider Wizard Flame Style.jpg', ''),
-(306, 'SHF Kamen Rider Gaim Orange Arms', 601, 650000, 2, 'image/SHF Kamen Rider Gaim Orange Arms.jpg', ''),
+(306, 'SHF Kamen Rider Gaim Orange Arms', 601, 650000, 0, 'image/SHF Kamen Rider Gaim Orange Arms.jpg', ''),
 (307, 'SHF Kamen Rider Baron Banana Arms', 601, 350000, 10, 'image/SHF Kamen Rider Baron Banana Arms.jpg', ''),
 (308, 'SIC Kamen Rider Wizard Flame Style', 602, 900000, 8, 'image/SIC Kamen Rider Wizard Flame Style.jpg', ''),
-(309, 'SHF Kamen Rider Black Renewal', 601, 700000, 7, 'image/SHF Kamen Rider Black Renewal.jpg', ''),
+(309, 'SHF Kamen Rider Black Renewal', 601, 700000, 4, 'image/SHF Kamen Rider Black Renewal.jpg', ''),
 (310, 'SIC Kamen Rider OOO Sagozo', 602, 950000, 8, 'image/SIC Kamen Rider OOO Sagozo.jpg', ''),
 (311, 'SIC Kamen Rider Kabuto', 602, 990000, 8, 'image/SIC Kamen Rider Kabuto.jpg', ''),
-(312, 'SIC Kamen Rider Ryuki', 602, 880000, 1, 'image/SIC Kamen Rider Ryuki.jpg', ''),
+(312, 'SIC Kamen Rider Ryuki', 602, 880000, 0, 'image/SIC Kamen Rider Ryuki.jpg', ''),
 (313, 'SCM Pegasus Kouga', 603, 900000, 8, 'image/SCM Pegasus Kouga.jpg', ''),
 (314, 'SCM Pegasus Seiya', 603, 1000000, 10, 'image/SCM Pegasus Seiya.jpg', ''),
 (315, 'SCM Gemini Saga', 603, 1200000, 8, 'image/SCM Gemini Saga.jpg', ''),
@@ -102,7 +102,12 @@ CREATE TABLE IF NOT EXISTS `h_transaksi` (
 --
 
 INSERT INTO `h_transaksi` (`h_kode`, `id_trans`, `id_barang`, `jumlah`) VALUES
-(501, 401, 318, 3);
+(501, 401, 302, 2),
+(502, 401, 312, 1),
+(503, 402, 301, 1),
+(504, 402, 306, 2),
+(505, 402, 309, 3),
+(506, 402, 304, 5);
 
 -- --------------------------------------------------------
 
@@ -206,7 +211,30 @@ CREATE TABLE IF NOT EXISTS `reg_user` (
 --
 
 INSERT INTO `reg_user` (`id`, `nama`, `enc_pass`, `alamat`, `email`, `telepon`) VALUES
-(1, 'andrew', '$2y$10$JaxJaxJaxJaxJaxJax222uqc0EPI/bXp5ez8u2blQ8IPvXITffTdC', 'qwer', 'qwer', 'qwer');
+(1, 'andrew', '$2y$10$JaxJaxJaxJaxJaxJax222uqc0EPI/bXp5ez8u2blQ8IPvXITffTdC', 'qwer', 'qwer', 'qwer'),
+(2, 'imagine', '$2y$10$JaxJaxJaxJaxJaxJax222uynUjdA4nh1I0TxgeQuGw7jPLnHIkkOm', 'qvuvb', 'vvbna', '098765');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `status_pesan`
+--
+
+CREATE TABLE IF NOT EXISTS `status_pesan` (
+  `id` int(11) NOT NULL,
+  `status` varchar(60) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `status_pesan`
+--
+
+INSERT INTO `status_pesan` (`id`, `status`) VALUES
+(1101, 'Waiting'),
+(1102, 'Sedang Diproses'),
+(1103, 'Terkirim'),
+(1104, 'Lunas'),
+(1105, 'Batal');
 
 -- --------------------------------------------------------
 
@@ -260,15 +288,18 @@ INSERT INTO `text_window` (`id`, `judul`, `isi`, `subject`, `visible`) VALUES
 CREATE TABLE IF NOT EXISTS `transaksi` (
   `kode` int(11) NOT NULL,
   `subtotal` int(11) NOT NULL,
-  `user` int(11) NOT NULL
+  `user` int(11) NOT NULL,
+  `tanggal` date NOT NULL,
+  `status` varchar(60) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `transaksi`
 --
 
-INSERT INTO `transaksi` (`kode`, `subtotal`, `user`) VALUES
-(401, 1500000, 1);
+INSERT INTO `transaksi` (`kode`, `subtotal`, `user`, `tanggal`, `status`) VALUES
+(401, 2680000, 2, '2014-12-13', '1102'),
+(402, 8300000, 2, '2014-12-21', '1102');
 
 --
 -- Indexes for dumped tables
@@ -320,6 +351,12 @@ ALTER TABLE `news`
 -- Indexes for table `reg_user`
 --
 ALTER TABLE `reg_user`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `status_pesan`
+--
+ALTER TABLE `status_pesan`
  ADD PRIMARY KEY (`id`);
 
 --

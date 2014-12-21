@@ -9,3 +9,4 @@
 8=news
 9=subjects
 10=text-window
+11=status_pesan

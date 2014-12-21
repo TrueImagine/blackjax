@@ -6,13 +6,23 @@
 	
 	//apabila form proses-transaksi di submit, maka masukkan detail transaksi ke database
 	if(isset($_POST['deal'])){
-		//masukkan transaksi baru ke tabel transaksi(isi tabel:kode transaksi(kode),subtotal,user)
+		//masukkan transaksi baru ke tabel transaksi(isi tabel:kode transaksi(kode),subtotal,user...
+		//...tanggal dan status)
+		
+		//ambil user
 		$user = $_SESSION['reg_user'];
-		$subtotal = 0;
+		
 		//cari subtotal
+		$subtotal = 0;
 		for($i = 0;$i < count($_SESSION['shop_list']);$i++){
 			$subtotal = $subtotal + ($_SESSION['shop_list'][$i]['harga']*$_SESSION['shop_list'][$i]['jumlah']);
 		}
+		
+		//Ambil tanggal sekarang
+		$tanggal = date("Y-m-d");
+		
+		//Set status menjadi "Waiting" (id = 1101)
+		$status = 1101;
 		
 		//cari kode terakhir, lalu tambah 1
 		$query = "SELECT kode FROM transaksi ORDER BY kode DESC LIMIT 1";
@@ -25,7 +35,7 @@
 		}
 		
 		//insert ke tabel transaksi
-		$query = "INSERT INTO transaksi (kode,subtotal,user) VALUES ({$kode_transaksi['kode']},{$subtotal},{$user})";
+		$query = "INSERT INTO transaksi (kode,subtotal,user,tanggal,status) VALUES ({$kode_transaksi['kode']},{$subtotal},{$user},'{$tanggal}',{$status})";
 		mysqli_query($connection,$query);
 		
 		//insert ke detail transaksi (h_transaksi), isi tabel(h_kode,id_trans,id_barang,jumlah)

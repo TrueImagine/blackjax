@@ -32,11 +32,11 @@ else{
 	$sql = "INSERT INTO reg_user(id, nama, enc_pass, email, alamat, telepon)
 		VALUES('$newid', '$username', '$newpass', '$email', '$alamat', '$telp')";
 	$daftar=mysqli_query($connection,$sql);
-	$_SESSION['message']="ID BERHASIL DIBUAT";
+	$_SESSION['message']="ID berhasil dibuat!";
 	header('Location:index.php');
 	}
 	else{
-		$_SESSION['message']="Password anda berbeda";
+		$_SESSION['message']="Password Anda berbeda";
 		header('Location:signup_user.php');
 	}
 }	

@@ -10,14 +10,12 @@ body{
 h3{
 	margin:10px;
 }
+
 /* akhir bagian tag html */
 
 #body{
 	width:800px;
-	background: -webkit-linear-gradient(#00FF00, #66FFFF); /* For Safari 5.1 to 6.0 */
-	background: -o-linear-gradient(#00FF00, #66FFFF); /* For Opera 11.1 to 12.0 */
-	background: -moz-linear-gradient(#00FF00, #66FFFF); /* For Firefox 3.6 to 15 */
-	background: linear-gradient(#00FF00, #66FFFF); /* Standard syntax */
+	background:grey; /* Standard syntax */
 	margin:0px auto;
 	padding:0px;
 }
@@ -26,15 +24,15 @@ h3{
 #header{
 	margin:0px auto;
 	padding:0px;
-	background:yellow;
+	background:grey;
 }
 
 #user-login{
 	width:220px;
 	padding:15px;
 	float:right;
-	background:#CCFF66;
 	height:88px;
+	border:2px solid black;
 }
 
 #user-login h4{
@@ -47,9 +45,14 @@ h3{
 }
 
 #user-login span{
-	color:grey;
+	color:black;
 	font-weight:bold;
 	font-size:16pt;
+}
+
+#signup label, #edit_profile label{
+	display:inline-block;
+	width:120px;
 }
 
 #navi{
@@ -146,7 +149,7 @@ h3{
 }
 
 #kategori{
-	color:#CC3399;
+	color:black;
 }
 
 #kategori ul{
@@ -176,6 +179,7 @@ h3{
 	background:white;
 	border:1px solid transparent;
 	border-radius:50px 0px 0px 0px;
+	min-height:600px;
 }
 
 #main-content table{
