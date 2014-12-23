@@ -46,7 +46,7 @@
 				<form id="contact_us" action="contact_us_proses.php" method="POST">
 				<table>
 					<tr>
-						<td style="width:100px;">
+						<td style="width:120px;">
 							Email:
 						</td>
 						<td>
@@ -54,7 +54,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td style="width:100px;">
+						<td style="width:120px;">
 							Kritik dan saran:
 						</td>
 						<td>
